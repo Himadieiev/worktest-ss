@@ -14,3 +14,21 @@ export const getTodos = createAsyncThunk(
     }
   }
 );
+
+export const addTodo = createAsyncThunk(
+  "todos/addTask",
+  async ({ title, text, priority }, thunkAPI) => {
+    try {
+      const res = await axios.post("/", {
+        id: Date.now(),
+        title,
+        text,
+        priority,
+        completed: false,
+      });
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

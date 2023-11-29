@@ -16,6 +16,9 @@
   border-radius: 10px;
   padding: 10px 15px;
   margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: "Roboto";
+  font-size: 14px;
 }
 
 .textarea {
@@ -26,6 +29,8 @@
   resize: none;
   height: 85px;
   margin-top: 5px;
+  font-family: "Roboto";
+  font-size: 14px;
 }
 
 textarea:focus,

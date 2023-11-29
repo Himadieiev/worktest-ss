@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import css from "./TodoList.module.css";
 import { getTodos } from "../../redux/thunk";
 import TodoItem from "../TodoItem/TodoItem";
+import { selectTodos } from "../../redux/selectors";
 
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchTodosData = async () => {
-      try {
-        const fetchedTodos = await dispatch(getTodos());
-        setTodos(fetchedTodos.payload);
-      } catch (error) {
-        console.error("Error fetching todos:", error);
-      }
-    };
+  const todos = useSelector(selectTodos);
 
-    fetchTodosData();
+  useEffect(() => {
+    dispatch(getTodos());
   }, [dispatch]);
 
   return (

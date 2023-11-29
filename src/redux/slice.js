@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTodos } from "./thunk";
+import { addTodo, getTodos } from "./thunk";
 
 const initialState = {
   items: [],
@@ -35,6 +35,18 @@ export const todoSlice = createSlice({
           isLoading: false,
           error: null,
           items: action.payload,
+        };
+      })
+      .addCase(addTodo.pending, handlePending)
+      .addCase(addTodo.rejected, handleRejected)
+      .addCase(addTodo.fulfilled, (state, action) => {
+        return {
+          ...state,
+          isLoading: false,
+          error: null,
+          items: state.items
+            ? [...state.items, action.payload]
+            : [action.payload],
         };
       });
   },
