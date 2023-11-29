@@ -4,155 +4,139 @@
       "id": 1,
       "title": "delectus",
       "text": "delectus aut autem",
-      "priority": "low",
-      "completed": false
+      "priority": "low"
     },
     {
       "id": 2,
       "title": "quis",
       "text": "quis ut nam facilis et officia qui",
-      "priority": "low",
-      "completed": false
+      "priority": "low"
     },
     {
       "id": 3,
       "title": "fugiat",
       "text": "fugiat veniam minus",
-      "priority": "medium",
-      "completed": false
+      "priority": "medium"
     },
     {
       "id": 4,
       "title": "etum",
       "text": "et porro tempora",
-      "priority": "low",
-      "completed": true
+      "priority": "low"
     },
     {
       "id": 5,
       "title": "laboriosam",
       "text": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-      "priority": "high",
-      "completed": false
+      "priority": "high"
     },
     {
       "id": 6,
       "title": "quisa",
       "text": "qui ullam ratione quibusdam voluptatem quia omnis",
-      "priority": "medium",
-      "completed": false
+      "priority": "medium"
     },
     {
       "id": 7,
       "title": "illo",
       "text": "illo expedita consequatur quia in",
-      "priority": "low",
-      "completed": false
+      "priority": "low"
     },
     {
       "id": 8,
       "title": "quonim",
       "text": "quo adipisci enim quam ut ab",
-      "priority": "high",
-      "completed": true
+      "priority": "high"
     },
     {
       "id": 9,
       "title": "molestiae",
       "text": "molestiae perspiciatis ipsa",
-      "priority": "low",
-      "completed": false
+      "priority": "low"
     },
     {
       "id": 10,
       "title": "illotu",
       "text": "illo est ratione doloremque quia maiores aut",
-      "priority": "high",
-      "completed": true
+      "priority": "high"
     },
     {
       "id": 11,
       "title": "vero",
       "text": "vero rerum temporibus dolor",
-      "priority": "low",
-      "completed": true
+      "priority": "low"
     },
     {
       "id": 12,
       "title": "ipsa",
       "text": "ipsa repellendus fugit nisi",
-      "priority": "low",
-      "completed": true
+      "priority": "low"
     },
     {
       "id": 13,
       "title": "doloremque",
       "text": "et doloremque nulla",
-      "priority": "medium",
-      "completed": false
+      "priority": "medium"
     },
     {
       "id": 14,
       "title": "repellendus",
       "text": "repellendus sunt dolores architecto voluptatum",
-      "priority": "medium",
-      "completed": true
+      "priority": "medium"
     },
     {
       "id": 15,
       "title": "voluptatum",
       "text": "ab voluptatum amet voluptas",
-      "priority": "low",
-      "completed": true
+      "priority": "low"
     },
     {
       "id": 16,
       "title": "accusamus",
       "text": "accusamus eos facilis sint et aut voluptatem",
-      "priority": "low",
-      "completed": true
+      "priority": "low"
     },
     {
       "id": 17,
       "title": "laboriosam",
       "text": "quo laboriosam deleniti aut qui",
-      "priority": "low",
-      "completed": true
+      "priority": "low"
     },
     {
       "id": 18,
       "title": "dolorum",
       "text": "dolorum est consequatur ea mollitia in culpa",
-      "priority": "low",
-      "completed": false
+      "priority": "low"
     },
     {
       "id": 19,
       "title": "molestiae",
       "text": "molestiae ipsa aut voluptatibus pariatur dolor nihil",
-      "priority": "high",
-      "completed": true
+      "priority": "high"
     },
     {
       "id": 20,
       "title": "ullam",
       "text": "ullam nobis libero sapiente ad optio sint",
-      "priority": "medium",
-      "completed": true
+      "priority": "medium"
     },
     {
       "id": 1701254900370,
       "title": "new todo",
       "text": "text new todo",
-      "priority": "medium",
-      "completed": false
+      "priority": "medium"
     },
     {
       "id": 1701255053064,
       "title": "todo",
       "text": "text todo",
-      "priority": "high",
-      "completed": false
+      "priority": "high"
+    },
+    {
+      "id": 1701256517420,
+      "title": "ggg",
+      "text": "ttt",
+      "priority": "high"
     }
   ]
 }

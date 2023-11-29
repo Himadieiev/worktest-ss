@@ -24,7 +24,6 @@ export const addTodo = createAsyncThunk(
         title,
         text,
         priority,
-        completed: false,
       });
       return res.data;
     } catch (e) {

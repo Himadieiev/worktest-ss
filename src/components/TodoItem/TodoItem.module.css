@@ -2,25 +2,34 @@
   border: 2px solid blue;
   border-radius: 20px;
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
 }
 
 .title {
   font-size: 20px;
   font-weight: 500;
+  margin-left: 10px;
+  text-decoration: underline;
 }
 
 .text {
   font-size: 16px;
+  margin-top: 20px;
+}
+
+.priority {
+  font-size: 16px;
   margin-top: 10px;
+}
+
+.priorityColor {
+  color: blue;
 }
 
 .btns {
   display: flex;
+  justify-content: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .edit,
