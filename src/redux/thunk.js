@@ -5,10 +5,12 @@ axios.defaults.baseURL = "http://localhost:3001/todos";
 
 export const getTodos = createAsyncThunk(
   "todos/getTodos",
-  async (_, thunkAPI) => {
+  async ({ page, limit }, thunkAPI) => {
     try {
-      const res = await axios.get("/");
-      return res.data;
+      const res = await axios.get(`/?_page=${page}&_limit=${limit}`);
+      const totalTodos = res.headers["x-total-count"];
+      const todosData = res.data;
+      return { totalTodos, todosData };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

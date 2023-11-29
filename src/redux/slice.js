@@ -5,6 +5,7 @@ const initialState = {
   items: [],
   isLoading: false,
   error: null,
+  totalTodos: 0,
 };
 
 const handlePending = (state) => {
@@ -34,7 +35,8 @@ export const todoSlice = createSlice({
           ...state,
           isLoading: false,
           error: null,
-          items: action.payload,
+          items: action.payload.todosData,
+          totalTodos: action.payload.totalTodos,
         };
       })
       .addCase(addTodo.pending, handlePending)
