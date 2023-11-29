@@ -1,8 +1,20 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import css from "./TodoItem.module.css";
+import { deleteTodo } from "../../redux/thunk";
 
 const TodoItem = ({ todo }) => {
+  const dispatch = useDispatch();
+
+  const handleDeleteBtn = async () => {
+    try {
+      await dispatch(deleteTodo(todo.id));
+    } catch (error) {
+      console.error("Error deleting todo:", error);
+    }
+  };
+
   return (
     <li className={css.todo}>
       <h2 className={css.title}>{todo.title}</h2>
@@ -14,7 +26,7 @@ const TodoItem = ({ todo }) => {
         <button type="button" className={css.edit}>
           Edit
         </button>
-        <button type="button" className={css.delete}>
+        <button type="button" className={css.delete} onClick={handleDeleteBtn}>
           Delete
         </button>
       </div>

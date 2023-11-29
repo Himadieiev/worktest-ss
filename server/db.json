@@ -121,22 +121,10 @@
       "priority": "medium"
     },
     {
-      "id": 1701254900370,
-      "title": "new todo",
-      "text": "text new todo",
-      "priority": "medium"
-    },
-    {
-      "id": 1701255053064,
+      "id": 1701257766983,
       "title": "todo",
-      "text": "text todo",
-      "priority": "high"
-    },
-    {
-      "id": 1701256517420,
-      "title": "ggg",
-      "text": "ttt",
-      "priority": "high"
+      "text": "todo text",
+      "priority": "medium"
     }
   ]
 }

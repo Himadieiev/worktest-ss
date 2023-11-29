@@ -31,3 +31,15 @@ export const addTodo = createAsyncThunk(
     }
   }
 );
+
+export const deleteTodo = createAsyncThunk(
+  "todos/deleteTodo",
+  async (todoId, thunkAPI) => {
+    try {
+      await axios.delete(`/${todoId}`);
+      return { id: todoId };
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
