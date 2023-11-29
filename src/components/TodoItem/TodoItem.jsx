@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import css from "./TodoItem.module.css";
 import { deleteTodo } from "../../redux/thunk";
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, toggleModal }) => {
   const dispatch = useDispatch();
 
   const handleDeleteBtn = async () => {
@@ -15,6 +15,10 @@ const TodoItem = ({ todo }) => {
     }
   };
 
+  const handleEditBtn = () => {
+    toggleModal(todo);
+  };
+
   return (
     <li className={css.todo}>
       <h2 className={css.title}>{todo.title}</h2>
@@ -23,7 +27,7 @@ const TodoItem = ({ todo }) => {
         Priority: <span className={css.priorityColor}>{todo.priority}</span>
       </p>
       <div className={css.btns}>
-        <button type="button" className={css.edit}>
+        <button type="button" className={css.edit} onClick={handleEditBtn}>
           Edit
         </button>
         <button type="button" className={css.delete} onClick={handleDeleteBtn}>

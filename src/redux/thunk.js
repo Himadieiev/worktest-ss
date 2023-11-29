@@ -43,3 +43,15 @@ export const deleteTodo = createAsyncThunk(
     }
   }
 );
+
+export const updateTodo = createAsyncThunk(
+  "todos/updateTodo",
+  async ({ todoId, updatedData }, thunkAPI) => {
+    try {
+      const res = await axios.put(`/${todoId}`, updatedData);
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

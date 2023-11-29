@@ -1,42 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import css from "./TodoForm.module.css";
-import { addTodo } from "../../redux/thunk";
+import { addTodo, updateTodo } from "../../redux/thunk";
 
-const TodoForm = ({ toggleModal }) => {
+const TodoForm = ({ toggleModal, editTodo }) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [priority, setPriority] = useState("low");
+  const [isEditing, setIsEditing] = useState(false);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (editTodo) {
+      setTitle(editTodo.title);
+      setText(editTodo.text);
+      setPriority(editTodo.priority);
+      setIsEditing(true);
+    }
+  }, [editTodo]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await dispatch(addTodo({ title, text, priority }));
-    } catch (error) {
-      console.error("Error adding todo:", error);
+    if (isEditing) {
+      try {
+        await dispatch(
+          updateTodo({
+            todoId: editTodo.id,
+            updatedData: { title, text, priority },
+          })
+        );
+        toggleModal();
+      } catch (error) {
+        console.error("Error updating todo:", error);
+      }
+    } else {
+      try {
+        await dispatch(addTodo({ title, text, priority }));
+        toggleModal();
+      } catch (error) {
+        console.error("Error adding todo:", error);
+      }
     }
 
     setTitle("");
     setText("");
     setPriority("low");
-
-    toggleModal();
+    setIsEditing(false);
   };
 
   return (
     <form className={css.form}>
-      <h2 className={css.title}>Create To Do</h2>
+      <h2 className={css.title}>
+        {isEditing ? "Update To Do" : "Create To Do"}
+      </h2>
       <label className={css.label}>
         Title
         <br />
         <input
           className={css.input}
           type="text"
-          name="title"
+          value={title}
           placeholder="Enter title"
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -46,7 +72,7 @@ const TodoForm = ({ toggleModal }) => {
         <br />
         <textarea
           className={css.textarea}
-          name="text"
+          value={text}
           placeholder="Enter text"
           onChange={(e) => setText(e.target.value)}
         />
@@ -84,7 +110,7 @@ const TodoForm = ({ toggleModal }) => {
         </label>
       </div>
       <button className={css.btn} type="submit" onClick={handleSubmit}>
-        Create
+        {isEditing ? "Update" : "Create"}
       </button>
     </form>
   );
