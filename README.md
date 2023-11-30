@@ -1,12 +1,12 @@
-# React TODO-list App
+## React TODO-list App
 
-## Project Overview
+### Project Overview
 
-This React application integrates a TODO list with API interaction, pagination, CRUD operations, custom design, and state management using Redux or Local Storage.
+This React application integrates a TODO list with API interaction, pagination, CRUD operations, custom design, and state management using Redux.
 
-## Setting Up the Project
+### Setting Up the Project
 
-### Installing Dependencies
+#### Installing Dependencies
 
 1. Open the terminal in the project's root directory.
 
@@ -14,7 +14,7 @@ This React application integrates a TODO list with API interaction, pagination, 
 
     `npm install`
 
-### Running the Project
+#### Running the Project
 
 1. After installing dependencies, execute the following command to start the server and the React application:
 
@@ -22,6 +22,6 @@ This React application integrates a TODO list with API interaction, pagination, 
 
 2. Open your browser and navigate to [http://localhost:3000] to view the application.
 
-## Repository Link
+### Repository Link
 
 [https://github.com/Himadieiev/worktest-ss]
