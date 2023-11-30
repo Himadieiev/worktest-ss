@@ -5,20 +5,38 @@
 }
 
 .title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-left: 10px;
   text-decoration: underline;
 }
 
+@media (min-width: 500px) {
+  .title {
+    font-size: 20px;
+  }
+}
+
 .text {
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 20px;
 }
 
+@media (min-width: 500px) {
+  .text {
+    font-size: 16px;
+  }
+}
+
 .priority {
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 10px;
+}
+
+@media (min-width: 500px) {
+  .priority {
+    font-size: 16px;
+  }
 }
 
 .priorityColor {

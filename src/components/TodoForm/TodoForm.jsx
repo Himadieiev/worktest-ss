@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import css from "./TodoForm.module.css";
@@ -13,6 +13,11 @@ const TodoForm = ({ toggleModal, editTodo }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const inputElement = document.getElementById("titleInput");
+    if (inputElement) {
+      inputElement.focus();
+    }
+
     if (editTodo) {
       setTitle(editTodo.title);
       setText(editTodo.text);
@@ -51,8 +56,15 @@ const TodoForm = ({ toggleModal, editTodo }) => {
     setIsEditing(false);
   };
 
+  const handleCloseBtn = () => {
+    toggleModal();
+  };
+
   return (
     <form className={css.form}>
+      <button type="button" className={css.closeBtn} onClick={handleCloseBtn}>
+        x
+      </button>
       <h2 className={css.title}>
         {isEditing ? "Update To Do" : "Create To Do"}
       </h2>
@@ -60,6 +72,7 @@ const TodoForm = ({ toggleModal, editTodo }) => {
         Title
         <br />
         <input
+          id="titleInput"
           className={css.input}
           type="text"
           value={title}
@@ -81,6 +94,7 @@ const TodoForm = ({ toggleModal, editTodo }) => {
         <label className={css.radioLabel}>
           <span>Low</span>
           <input
+            className={css.radioInput}
             type="radio"
             name="priority"
             value="low"
@@ -91,6 +105,7 @@ const TodoForm = ({ toggleModal, editTodo }) => {
         <label className={css.radioLabel}>
           <span>Medium</span>
           <input
+            className={css.radioInput}
             type="radio"
             name="priority"
             value="medium"
@@ -101,6 +116,7 @@ const TodoForm = ({ toggleModal, editTodo }) => {
         <label className={css.radioLabel}>
           <span>High</span>
           <input
+            className={css.radioInput}
             type="radio"
             name="priority"
             value="high"

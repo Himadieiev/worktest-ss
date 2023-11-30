@@ -1,5 +1,12 @@
 .form {
-  padding: 20px;
+  padding: 20px 10px;
+  position: relative;
+}
+
+@media (min-width: 500px) {
+  .form {
+    padding: 20px;
+  }
 }
 
 .title {
@@ -11,7 +18,7 @@
 }
 
 .input {
-  width: 300px;
+  width: 280px;
   border: 2px solid blue;
   border-radius: 10px;
   padding: 10px 15px;
@@ -19,6 +26,12 @@
   margin-bottom: 10px;
   font-family: "Roboto";
   font-size: 14px;
+}
+
+@media (min-width: 500px) {
+  .input {
+    width: 330px;
+  }
 }
 
 .textarea {
@@ -43,6 +56,12 @@ textarea:hover {
   justify-content: center;
   gap: 12px;
   margin-top: 20px;
+}
+
+.radioInput:focus,
+.radioInput:hover {
+  scale: 1.2;
+  cursor: pointer;
 }
 
 .label {
@@ -71,6 +90,28 @@ textarea:hover {
 
 .btn:hover,
 .btn:focus {
+  color: white;
+  background-color: blue;
+}
+
+.closeBtn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20px;
+  right: 20px;
+  border: 1px solid blue;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  color: blue;
+  font-size: 10px;
+  transition: color 0.3s linear, background-color 0.3s linear;
+}
+
+.closeBtn:focus,
+.closeBtn:hover {
   color: white;
   background-color: blue;
 }
