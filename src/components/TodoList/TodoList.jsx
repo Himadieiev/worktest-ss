@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
 
 import css from "./TodoList.module.css";
 import { getTodos } from "../../redux/thunk";
 import TodoItem from "../TodoItem/TodoItem";
-import { selectTodos, selectTotalTodos } from "../../redux/selectors";
+import {
+  selectIsLoading,
+  selectTodos,
+  selectTotalTodos,
+} from "../../redux/selectors";
 import Modal from "../Modal/Modal";
 import TodoForm from "../TodoForm/TodoForm";
+import Loader from "../Loader/Loader";
 
 const TodoList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editTodo, setEditTodo] = useState(null);
+
   const dispatch = useDispatch();
 
   const todos = useSelector(selectTodos);
   const totalTodos = useSelector(selectTotalTodos);
+  const isLoading = useSelector(selectIsLoading);
+
   const totalPages = Math.ceil(totalTodos / 5);
 
   const toggleModal = (todo) => {
@@ -34,6 +42,7 @@ const TodoList = () => {
 
   return (
     <main className={`${css.todoList} container`}>
+      {isLoading && <Loader />}
       {todos.length !== 0 && (
         <ul className={css.list}>
           {todos.map((todo) => (
@@ -41,19 +50,24 @@ const TodoList = () => {
           ))}
         </ul>
       )}
-      <ReactPaginate
-        previousLabel={"<<"}
-        nextLabel={">>"}
-        breakLabel={"..."}
-        pageCount={totalPages}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={2}
-        onPageChange={handlePageChange}
-        containerClassName={css.pagination}
-        pageClassName={css.page}
-        previousClassName={css.previous}
-        nextClassName={css.next}
-      />
+
+      {(todos.length !== 0 || todos.length !== 1) && (
+        <ReactPaginate
+          previousLabel={"<<"}
+          nextLabel={">>"}
+          breakLabel={"..."}
+          pageCount={totalPages}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageChange}
+          containerClassName={css.pagination}
+          pageClassName={css.page}
+          previousClassName={css.previous}
+          nextClassName={css.next}
+          activeClassName={css.active}
+        />
+      )}
+
       {isModalOpen && (
         <Modal toggleModal={toggleModal}>
           <TodoForm toggleModal={toggleModal} editTodo={editTodo} />
