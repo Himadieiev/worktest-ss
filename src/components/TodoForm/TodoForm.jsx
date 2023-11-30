@@ -12,6 +12,7 @@ const TodoForm = ({ toggleModal, editTodo }) => {
 
   const dispatch = useDispatch();
 
+  // Ефект для встановлення фокусу на полі вводу заголовку при відкритті модального вікна з формою
   useEffect(() => {
     const inputElement = document.getElementById("titleInput");
     if (inputElement) {
@@ -26,6 +27,7 @@ const TodoForm = ({ toggleModal, editTodo }) => {
     }
   }, [editTodo]);
 
+  // Обробник відправлення форми
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,12 +52,14 @@ const TodoForm = ({ toggleModal, editTodo }) => {
       }
     }
 
+    // Очищення полів форми після відправки
     setTitle("");
     setText("");
     setPriority("low");
     setIsEditing(false);
   };
 
+  // Обробник кнопки закриття форми
   const handleCloseBtn = () => {
     toggleModal();
   };

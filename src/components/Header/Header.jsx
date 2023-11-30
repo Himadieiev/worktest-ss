@@ -7,6 +7,7 @@ import TodoForm from "../TodoForm/TodoForm";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Функція для зміни стану відкриття/закриття модального вікна
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
   };

@@ -3,6 +3,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3001/todos";
 
+// Асинхронна дія для отримання списку todo
 export const getTodos = createAsyncThunk(
   "todos/getTodos",
   async ({ page, limit }, thunkAPI) => {
@@ -17,6 +18,7 @@ export const getTodos = createAsyncThunk(
   }
 );
 
+// Асинхронна дія для додавання todo
 export const addTodo = createAsyncThunk(
   "todos/addTask",
   async ({ title, text, priority }, thunkAPI) => {
@@ -34,6 +36,7 @@ export const addTodo = createAsyncThunk(
   }
 );
 
+// Асинхронна дія для видалення todo
 export const deleteTodo = createAsyncThunk(
   "todos/deleteTodo",
   async (todoId, thunkAPI) => {
@@ -46,6 +49,7 @@ export const deleteTodo = createAsyncThunk(
   }
 );
 
+// Асинхронна дія для оновлення todo
 export const updateTodo = createAsyncThunk(
   "todos/updateTodo",
   async ({ todoId, updatedData }, thunkAPI) => {

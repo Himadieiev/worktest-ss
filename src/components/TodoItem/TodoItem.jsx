@@ -6,6 +6,7 @@ import { deleteTodo } from "../../redux/thunk";
 const TodoItem = ({ todo, toggleModal }) => {
   const dispatch = useDispatch();
 
+  // Обробник натискання на кнопку видалення
   const handleDeleteBtn = async () => {
     try {
       await dispatch(deleteTodo(todo.id));
@@ -14,6 +15,7 @@ const TodoItem = ({ todo, toggleModal }) => {
     }
   };
 
+  // Обробник натискання на кнопку редагування
   const handleEditBtn = () => {
     toggleModal(todo);
   };

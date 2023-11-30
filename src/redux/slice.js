@@ -8,6 +8,7 @@ const initialState = {
   totalTodos: 0,
 };
 
+// Функція для обробки стану під час виконання асинхронного запиту (pending)
 const handlePending = (state) => {
   return {
     ...state,
@@ -15,6 +16,7 @@ const handlePending = (state) => {
   };
 };
 
+// Функція для обробки стану в разі відхилення асинхронного запиту (rejected)
 const handleRejected = (state, action) => {
   return {
     ...state,
@@ -23,6 +25,7 @@ const handleRejected = (state, action) => {
   };
 };
 
+// Створення Slice для управління станом та екшенами для сутності "todos"
 export const todoSlice = createSlice({
   name: "todos",
   initialState,

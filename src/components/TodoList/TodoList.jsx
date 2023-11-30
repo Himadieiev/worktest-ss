@@ -24,18 +24,22 @@ const TodoList = () => {
   const totalTodos = useSelector(selectTotalTodos);
   const isLoading = useSelector(selectIsLoading);
 
+  // Розрахунок загальної кількості сторінок для пагінації
   const totalPages = Math.ceil(totalTodos / 5);
 
+  // Функція для відкриття/закриття модального вікна та передачі todo для редагування
   const toggleModal = (todo) => {
     setEditTodo(todo);
     setIsModalOpen(!isModalOpen);
   };
 
+  // Обробник зміни сторінки пагінації
   const handlePageChange = ({ selected }) => {
     const page = selected + 1;
     dispatch(getTodos({ page, limit: 5 }));
   };
 
+  // Ефект для завантаження першої сторінки при відображенні компонента
   useEffect(() => {
     dispatch(getTodos({ page: 1, limit: 5 }));
   }, [dispatch]);
